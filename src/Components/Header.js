@@ -1,19 +1,33 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { FiSun, FiMoon } from "react-icons/fi";
+import { useScroll } from "../hooks/useScroll";
 
-const Header = ({ darkMode = true }) => {
+const Header = ({ darkMode, onThemeChangeClick }) => {
   const colorSchemeStyles = darkMode ? styles.darkBlur : styles.lightBlur;
-  console.log(colorSchemeStyles);
+  const position = useScroll();
   return (
-    <View style={[colorSchemeStyles, styles.blur, styles.container]}>
+    <View
+      style={[
+        colorSchemeStyles,
+        styles.blur,
+        styles.container,
+        position > 25 ? styles.shadow : styles.noShadow,
+      ]}
+    >
       <View style={styles.control}>
         <View style={styles.leftNav}>
-          <Text style={[darkMode && styles.lightText, styles]}>
-            leftControl
+          <Text
+            style={[darkMode && styles.lightText, styles.font]}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            {"<Anthony />"}
           </Text>
         </View>
-        <View style={styles.rightNav}>
-          <Text style={darkMode && styles.lightText}>right Control</Text>
+        <View style={[styles.rightNav, darkMode && styles.fillIcon]}>
+          <View onClick={onThemeChangeClick} style={styles.transition}>
+            {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
+          </View>
         </View>
       </View>
     </View>
@@ -28,6 +42,7 @@ const styles = StyleSheet.create({
     start: 0,
     position: "fixed",
     width: "100%",
+    transition: "all .4s ease",
   },
 
   blur: {
@@ -43,15 +58,15 @@ const styles = StyleSheet.create({
   },
 
   leftNav: {
-    alignItems: "start",
+    alignItems: "flex-start",
     minWidth: "20px",
     paddingHorizontal: "12px",
-    marginHorizontal: "12px",
+    marginStart: "14px",
   },
 
   rightNav: {
     alignItems: "flex-end",
-    marginHorizontal: "12px",
+    marginEnd: "14px",
     paddingHorizontal: "12px",
     minWidth: "20px",
   },
@@ -65,6 +80,28 @@ const styles = StyleSheet.create({
 
   lightText: {
     color: "white",
+  },
+
+  fillIcon: {
+    color: "white",
+  },
+
+  font: {
+    fontFamily: "Work Sans, sans-serif",
+    fontSize: "1em",
+    cursor: "pointer",
+  },
+
+  transition: {
+    cursor: "pointer",
+  },
+
+  shadow: {
+    boxShadow:
+      "0 1px 3px 0 rgb(89 88 88 / 10%), 0 1px 2px -1px rgb(89 88 88 / 10%)",
+  },
+  noShadow: {
+    boxShadow: "0 0 #0000",
   },
 });
 
