@@ -1,11 +1,14 @@
 import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions } from "react-native";
 import Header from "./Components/Header";
-import codingAnt from "./img/codingMe.png";
+import Information from "./Components/Information";
+import { useColorScheme } from "react-native";
+import Experience from "./Components/Experience";
 
 const App = () => {
-  const [darkMode, setDarkMode] = React.useState(() =>
-    window.localStorage.getItem("darkMode") === "true" ? true : false
+  const colorScheme = useColorScheme();
+  const [darkMode, setDarkMode] = React.useState(
+    () => window.localStorage.getItem("darkMode") === "true" ?? colorScheme
   );
 
   React.useEffect(() => {
@@ -19,30 +22,46 @@ const App = () => {
   const themeChange = () => {
     setDarkMode(!darkMode);
   };
+  const [screenDims, setScreen] = React.useState(Dimensions.get("screen"));
+  const [windowDims, setWindow] = React.useState(Dimensions.get("window"));
+
+  const windowSize = windowDims.width >= "750";
+  const screenSize = screenDims.width >= "750";
+  const isDesktop = windowSize || screenSize;
+
+  React.useEffect(() => {
+    const handleChange = ({ screen, window: win }) => {
+      setScreen(screen);
+      setWindow(win);
+    };
+
+    const subscription = Dimensions.addEventListener("change", handleChange);
+    return () => {
+      subscription.remove();
+    };
+  }, [setScreen, setWindow]);
 
   return (
     <View style={[darkMode && styles.themeChange, styles.app]}>
       <Header darkMode={darkMode} onThemeChangeClick={themeChange} />
-      <Image source={codingAnt} style={[styles.img]} />
-      <Image source={codingAnt} style={[styles.img]} />
-      <Image source={codingAnt} style={[styles.img]} />
+      <Information darkMode={darkMode} isDesktop={isDesktop} />
+      <Experience darkMode={darkMode} isDesktop={isDesktop} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   app: {
-    minHeight: "100%",
     transition: "all .4s ease",
+    minHeight: "100vh",
+    height: "100%",
   },
-
   img: {
-    height: 220,
-    width: 220,
-    resizeMode: "cover",
+    height: 200,
+    width: 200,
   },
   themeChange: {
-    backgroundColor: "rgba(14,30,42,1)",
+    backgroundColor: "rgb(21,32,43)",
   },
 });
 
