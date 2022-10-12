@@ -1,8 +1,8 @@
 import React from "react";
 import { View, StyleSheet, Text, Image } from "react-native";
-import { FaTwitter, FaLinkedin } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
+import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import codingAnt from "../assets/codingMe.png";
+import Button from "./Button";
 
 const Information = ({ darkMode, isDesktop }) => {
   const socialMediaObject = [
@@ -15,13 +15,13 @@ const Information = ({ darkMode, isDesktop }) => {
       link: "https://www.linkedin.com/in/anthony-mendoza9/",
     },
     {
-      icon: <SiGmail />,
-      link: "mailto:anthonymendoza9922@gmail.com",
+      icon: <FaGithub />,
+      link: "https://github.com/antman999",
     },
   ];
   return (
     <View style={[isDesktop ? styles.root : styles.mobileRoot]}>
-      <View style={styles.textRoot}>
+      <View style={[styles.textRoot, !isDesktop && { paddingBottom: 0 }]}>
         <Image source={codingAnt} style={styles.img} />
         <Text style={[styles.textName, darkMode && styles.darkText]}>
           Hi 👋 I'm <Text style={[darkMode && styles.tealName]}>Anthony</Text>

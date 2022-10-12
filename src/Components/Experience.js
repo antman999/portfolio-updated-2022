@@ -1,16 +1,25 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { technicalExperience, education } from "../assets/experienceObject";
+import DevPosts from "./DevPosts";
 
 const Experience = ({ darkMode, isDesktop }) => {
+  const techStack = [
+    "Javascript",
+    "Flow.js",
+    "Typescript",
+    "React",
+    "React Native",
+    "React Native Web",
+    "React Testing Library",
+    "Node.js",
+  ];
   return (
     <View
       style={[isDesktop ? styles.experienceRoot : styles.experienceRootMobile]}
     >
       <View style={styles.textWrapper}>
-        <Text
-          style={[styles.titleRow, styles.title, darkMode && styles.tealName]}
-        >
+        <Text style={[styles.title, darkMode && styles.tealName]}>
           About Me
         </Text>
         <Text
@@ -20,28 +29,25 @@ const Experience = ({ darkMode, isDesktop }) => {
           ]}
         >
           Hi! thanks for visiting my portfolio! I'm a software engineer based
-          out of NYC currently working at twitter helping build our internal
-          components library. Previously I attended Flatiron Bootcamp where I
+          out of NYC. Currently working at Twitter helping build our internal
+          components library. Previously I attended Flatiron Bootcamp, where I
           learned all the fundamentals of web development. <br /> <br />
-          Before attending Flatiron School I was majoring in CS and working in
+          Before attending Flatiron School, I was majoring in CS and working in
           banking.
           <br />
           <br />
           In my past time I enjoy diving deep into frontend work I also practice
-          Muay Thai and most importantly I'm Cocoa's 🐶 dad, Scroll all the way
-          to the bottom to see some pictures of her.
+          Muay Thai and most importantly I'm Cocoa's 🐶 dad.
         </Text>
       </View>
       <View>
-        <Text
-          style={[styles.titleRow, styles.title, darkMode && styles.tealName]}
-        >
+        <Text style={[styles.title, darkMode && styles.tealName]}>
           Experience
         </Text>
         {technicalExperience.map((obj) => (
           <View style={styles.experienceWrapper} key={obj.role}>
             <Text style={[styles.company, darkMode && { color: "#FFFFFF" }]}>
-              @{obj.company}
+              {obj.company}
             </Text>
             <Text
               style={[styles.role, darkMode && { color: "rgb(201,201,201)" }]}
@@ -60,15 +66,13 @@ const Experience = ({ darkMode, isDesktop }) => {
         ))}
       </View>
       <View>
-        <Text
-          style={[styles.titleRow, styles.title, darkMode && styles.tealName]}
-        >
+        <Text style={[styles.title, darkMode && styles.tealName]}>
           Education
         </Text>
         {education.map((obj) => (
           <View style={styles.experienceWrapper} key={obj.school}>
             <Text style={[styles.company, darkMode && { color: "#FFFFFF" }]}>
-              @{obj.school}
+              {obj.school}
             </Text>
             <Text
               style={[styles.role, darkMode && { color: "rgb(201,201,201)" }]}
@@ -87,20 +91,46 @@ const Experience = ({ darkMode, isDesktop }) => {
         ))}
       </View>
       <View>
-        <Text
-          style={[styles.titleRow, styles.title, darkMode && styles.tealName]}
-        >
+        <Text style={[styles.title, darkMode && styles.tealName]}>
           Technologies I'm working with
         </Text>
         <View style={styles.list} accessibilityRole="list">
-          <Text accessibilityRole="listitem">Javascript</Text>
-          <Text accessibilityRole="listitem">Flow.js</Text>
-          <Text accessibilityRole="listitem">Typescript</Text>
-          <Text accessibilityRole="listitem">React</Text>
-          <Text accessibilityRole="listitem">React Native</Text>
-          <Text accessibilityRole="listitem">React Native Web</Text>
-          <Text accessibilityRole="listitem">Node.js</Text>
+          {techStack.map((tech) => (
+            <Text
+              accessibilityRole="listitem"
+              key={tech}
+              style={[
+                styles.techStack,
+                darkMode && { color: "rgb(201,201,201)" },
+              ]}
+            >
+              ▹ {tech}
+            </Text>
+          ))}
         </View>
+      </View>
+      <View>
+        <Text
+          style={[
+            styles.title,
+            darkMode && styles.tealName,
+            { paddingBottom: "16px" },
+          ]}
+        >
+          Technical posts
+        </Text>
+        <DevPosts darkMode={darkMode} />
+      </View>
+      <View accessibilityRole="footer" style={styles.footer}>
+        <Text
+          style={[
+            styles.footerText,
+            darkMode && { color: '"rgb(201,201,201)"' },
+          ]}
+        >
+          Built with ❤️ by{" "}
+          <Text style={[darkMode && styles.tealName]}>Anthony Mendoza</Text>
+        </Text>
       </View>
     </View>
   );
@@ -135,16 +165,15 @@ const styles = StyleSheet.create({
     marginBottom: "2px",
     flexDirection: "row",
     fontSize: "1.15rem",
-    fontStyle: "italic",
-    fontWeight: 250,
+    fontWeight: 350,
   },
 
   role: {
     flexDirection: "row",
     fontStyle: "italic",
     fontSize: "0.85rem",
-    fontWeight: 250,
-    marginBottom: "20px",
+    fontWeight: 350,
+    marginBottom: "10px",
   },
 
   descriptionRoot: {
@@ -167,11 +196,31 @@ const styles = StyleSheet.create({
 
   list: {
     display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(140px, 200px))",
+    gridTemplateColumns: "repeat(2, minmax(140px, 700px))",
     gap: "0px 10px",
-    margin: "auto",
     overflow: "hidden",
     listStyle: "none",
+    marginTop: "20px",
+  },
+  techStack: {
+    fontStyle: "normal",
+    fontSize: "0.95rem",
+    fontWeight: 150,
+    paddingTop: "8px",
+  },
+
+  footer: {
+    margin: "auto",
+    marginTop: "30px",
+    paddingTop: "30px",
+    paddingBottom: "24px",
+  },
+
+  footerText: {
+    flexDirection: "row",
+    fontStyle: "normal",
+    fontSize: "0.95rem",
+    fontWeight: 150,
   },
 });
 
