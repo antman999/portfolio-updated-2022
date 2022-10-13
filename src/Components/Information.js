@@ -2,7 +2,6 @@ import React from "react";
 import { View, StyleSheet, Text, Image } from "react-native";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import codingAnt from "../assets/codingMe.png";
-import Button from "./Button";
 
 const Information = ({ darkMode, isDesktop }) => {
   const socialMediaObject = [
