@@ -16,6 +16,8 @@ const Experience = ({ darkMode, isDesktop }) => {
   ];
   return (
     <View
+      focusable
+      accessibilityRole="paragraph"
       style={[isDesktop ? styles.experienceRoot : styles.experienceRootMobile]}
     >
       <View style={styles.textWrapper}>
@@ -23,6 +25,7 @@ const Experience = ({ darkMode, isDesktop }) => {
           About Me
         </Text>
         <Text
+          focusable
           style={[
             styles.descriptionRoot,
             darkMode && { color: '"rgb(201,201,201)"' },
@@ -40,7 +43,7 @@ const Experience = ({ darkMode, isDesktop }) => {
           Muay Thai and most importantly I'm Cocoa's 🐶 dad.
         </Text>
       </View>
-      <View>
+      <View focusable>
         <Text style={[styles.title, darkMode && styles.tealName]}>
           Experience
         </Text>
@@ -65,7 +68,7 @@ const Experience = ({ darkMode, isDesktop }) => {
           </View>
         ))}
       </View>
-      <View>
+      <View focusable>
         <Text style={[styles.title, darkMode && styles.tealName]}>
           Education
         </Text>
@@ -90,7 +93,7 @@ const Experience = ({ darkMode, isDesktop }) => {
           </View>
         ))}
       </View>
-      <View>
+      <View focusable>
         <Text style={[styles.title, darkMode && styles.tealName]}>
           Technologies I'm working with
         </Text>
@@ -114,14 +117,14 @@ const Experience = ({ darkMode, isDesktop }) => {
           style={[
             styles.title,
             darkMode && styles.tealName,
-            { paddingBottom: "16px" },
+            { paddingBottom: "28px" },
           ]}
         >
           Technical posts
         </Text>
         <DevPosts darkMode={darkMode} />
       </View>
-      <View accessibilityRole="footer" style={styles.footer}>
+      <View accessibilityRole="footer" style={styles.footer} focusable>
         <Text
           style={[
             styles.footerText,
@@ -181,7 +184,7 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontSize: "0.95rem",
     fontWeight: 150,
-    paddingTop: "20px",
+    paddingTop: "28px",
   },
 
   experienceWrapper: { marginBottom: "20px" },
@@ -200,7 +203,7 @@ const styles = StyleSheet.create({
     gap: "0px 10px",
     overflow: "hidden",
     listStyle: "none",
-    marginTop: "20px",
+    marginTop: "28px",
   },
   techStack: {
     fontStyle: "normal",

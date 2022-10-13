@@ -45,6 +45,13 @@ const App = () => {
     setDarkMode(!darkMode);
   };
 
+  const handleThemeKeyDown = (e) => {
+    if (!e.defaultPrevented && e.key === "Enter") {
+      themeChange();
+      e.preventDefault();
+    }
+  };
+
   const windowSize = windowDims.width >= "750";
   const screenSize = screenDims.width >= "750";
   const isDesktop = windowSize || screenSize;
@@ -55,7 +62,11 @@ const App = () => {
         <Spinner darkMode={darkMode} />
       ) : (
         <React.Fragment>
-          <Header darkMode={darkMode} onThemeChangeClick={themeChange} />
+          <Header
+            darkMode={darkMode}
+            onThemeChangeClick={themeChange}
+            onKeyDown={handleThemeKeyDown}
+          />
           <Information darkMode={darkMode} isDesktop={isDesktop} />
           <Experience darkMode={darkMode} isDesktop={isDesktop} />
         </React.Fragment>

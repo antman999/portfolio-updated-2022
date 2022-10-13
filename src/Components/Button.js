@@ -3,6 +3,17 @@ import { StyleSheet, Text, View } from "react-native";
 import anthonyResume from "../assets/antResume.pdf";
 
 const Button = ({ darkMode }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    window.open(anthonyResume, "_blank");
+  };
+
+  const onKeyPress = (e) => {
+    if (!e.defaultPrevented && e.key === "Enter") {
+      handleClick(e);
+      e.preventDefault();
+    }
+  };
   return (
     <View
       style={[
@@ -11,9 +22,15 @@ const Button = ({ darkMode }) => {
       ]}
       accessibilityRole="button"
       focusable
-      onClick={() => window.open(anthonyResume, "_blank")}
+      onClick={handleClick}
+      onKeyDown={onKeyPress}
     >
-      <Text style={darkMode && styles.darkTextColor}>Resume</Text>
+      <Text
+        style={darkMode && styles.darkTextColor}
+        accessibilityLabel="Resume"
+      >
+        Resume
+      </Text>
     </View>
   );
 };

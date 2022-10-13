@@ -20,13 +20,25 @@ const Information = ({ darkMode, isDesktop }) => {
     },
   ];
   return (
-    <View style={[isDesktop ? styles.root : styles.mobileRoot]}>
+    <View style={[isDesktop ? styles.root : styles.mobileRoot]} focusable>
       <View style={[styles.textRoot, !isDesktop && { paddingBottom: 0 }]}>
-        <Image source={codingAnt} style={styles.img} />
-        <Text style={[styles.textName, darkMode && styles.darkText]}>
+        <Image
+          source={codingAnt}
+          style={styles.img}
+          focusable
+          accessibilityLabel="Picture of memoji Me coding"
+        />
+        <Text
+          style={[styles.textName, darkMode && styles.darkText]}
+          accessibilityRole="heading"
+          focusable
+        >
           Hi 👋 I'm <Text style={[darkMode && styles.tealName]}>Anthony</Text>
         </Text>
-        <Text style={[styles.bio, darkMode && styles.darkBio]}>
+        <Text
+          style={[styles.bio, darkMode && styles.darkBio]}
+          accessibilityRole="paragraph"
+        >
           Front-end engineer @Twitter working on our internal UI library and
           foundational components you see on Twitter.com
         </Text>

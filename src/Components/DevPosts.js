@@ -45,28 +45,25 @@ const DevPosts = ({ darkMode }) => {
                 {formatDate.format(postDate)}
               </Text>
               <Pressable>
-                {({ hovered }) => {
-                  console.log(hovered);
-                  return (
-                    <View style={styles.textWrapper}>
-                      <Text
-                        href={post.url}
-                        style={[
-                          styles.listText,
-                          hovered && { color: "#fff", background: "black" },
-                          darkMode && { color: "#fff" },
-                          darkMode &&
-                            hovered && {
-                              background: "#2dd4bf",
-                            },
-                        ]}
-                        numberOfLines={1}
-                      >
-                        {post.title}
-                      </Text>
-                    </View>
-                  );
-                }}
+                {({ hovered }) => (
+                  <View style={styles.textWrapper}>
+                    <Text
+                      href={post.url}
+                      style={[
+                        styles.listText,
+                        hovered && { color: "#fff", background: "black" },
+                        darkMode && { color: "#fff" },
+                        darkMode &&
+                          hovered && {
+                            background: "#2dd4bf",
+                          },
+                      ]}
+                      numberOfLines={1}
+                    >
+                      {post.title}
+                    </Text>
+                  </View>
+                )}
               </Pressable>
             </View>
           );
@@ -77,7 +74,7 @@ const DevPosts = ({ darkMode }) => {
 
 const styles = StyleSheet.create({
   listItem: {
-    paddingTop: "0.75rem",
+    paddingBottom: "0.75rem",
     marginBottom: "0.75rem",
     display: "list-item",
   },

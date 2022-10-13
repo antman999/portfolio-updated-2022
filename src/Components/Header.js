@@ -4,9 +4,21 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import { useScroll } from "../hooks/useScroll";
 import Button from "./Button";
 
-const Header = ({ darkMode, onThemeChangeClick }) => {
+const Header = ({ darkMode, onThemeChangeClick, onKeyDown }) => {
   const colorSchemeStyles = darkMode ? styles.darkBlur : styles.lightBlur;
   const position = useScroll();
+
+  const handleClick = (e) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const onKeyPress = (e) => {
+    if (!e.defaultPrevented && e.key === "Enter") {
+      handleClick(e);
+      e.preventDefault();
+    }
+  };
+
   return (
     <View
       style={[
@@ -15,20 +27,40 @@ const Header = ({ darkMode, onThemeChangeClick }) => {
         styles.container,
         position > 5 ? styles.shadow : styles.noShadow,
       ]}
+      accessibilityRole="navigation"
     >
-      <View style={styles.control} accessibilityRole="navigation">
+      <View style={styles.control}>
         <View style={styles.leftNav}>
           <Text
             style={[darkMode && styles.lightText, styles.font]}
             focusable
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={handleClick}
+            onKeyDown={onKeyPress}
+            accessibilityLabel="Anthony title button"
           >
             {"<Anthony />"}
           </Text>
         </View>
         <View style={[styles.rightNav, darkMode && styles.fillIcon]}>
-          <View focusable onClick={onThemeChangeClick} style={styles.icon}>
-            {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
+          <View
+            focusable
+            onClick={onThemeChangeClick}
+            onKeyDown={onKeyDown}
+            style={styles.icon}
+          >
+            {darkMode ? (
+              <FiSun
+                size={20}
+                accessibilityRole="button"
+                accessibilityLabel="Sun Icon"
+              />
+            ) : (
+              <FiMoon
+                size={20}
+                accessibilityRole="button"
+                accessibilityLabel="Moon Icon"
+              />
+            )}
           </View>
           <Button darkMode={darkMode} />
         </View>
