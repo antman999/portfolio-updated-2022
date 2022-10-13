@@ -31,16 +31,16 @@ const Experience = ({ darkMode, isDesktop }) => {
             darkMode && { color: '"rgb(201,201,201)"' },
           ]}
         >
-          Hi! thanks for visiting my portfolio! I'm a software engineer based
-          out of NYC. Currently working at Twitter helping build our internal
-          components library. Previously I attended Flatiron Bootcamp, where I
-          learned all the fundamentals of web development. <br /> <br />
-          Before attending Flatiron School, I was majoring in CS and working in
-          banking.
+          Hi! Thanks for visiting my portfolio! I'm a software engineer based
+          out of NYC. Currently working at Twitter. Previously I attended
+          Flatiron Bootcamp, where I learned all the fundamentals of web
+          development. <br /> <br />
+          Before attending Flatiron School, I was majoring in Computer Science
+          and working in banking.
           <br />
           <br />
-          In my past time I enjoy diving deep into frontend work I also practice
-          Muay Thai and most importantly I'm Cocoa's 🐶 dad.
+          In my free time I enjoy exploring new front-end technologies,
+          practicing Muy Thai, and most importantly being dog dad to Cocoa 🐶.
         </Text>
       </View>
       <View focusable>

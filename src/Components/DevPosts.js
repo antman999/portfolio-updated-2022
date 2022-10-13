@@ -46,13 +46,18 @@ const DevPosts = ({ darkMode }) => {
               </Text>
               <Pressable>
                 {({ hovered }) => (
-                  <View style={styles.textWrapper}>
+                  <View
+                    style={[
+                      styles.textWrapper,
+                      darkMode && styles.darkModeText,
+                    ]}
+                  >
                     <Text
                       href={post.url}
                       style={[
                         styles.listText,
                         hovered && { color: "#fff", background: "black" },
-                        darkMode && { color: "#fff" },
+                        darkMode && styles.darkModeText,
                         darkMode &&
                           hovered && {
                             background: "#2dd4bf",
@@ -95,6 +100,11 @@ const styles = StyleSheet.create({
     cursor: "pointer",
     textDecorationLine: "underline",
     textDecorationStyle: "solid",
+  },
+
+  darkModeText: {
+    color: "white",
+    textOverflow: "ellipsis",
   },
 
   date: {
