@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import anthonyResume from "../assets/antResume.pdf";
+import anthonyResume from "../assets/Anthony-Mendoza-CV.pdf";
 
 const Button = ({ darkMode }) => {
   const handleClick = (e) => {
