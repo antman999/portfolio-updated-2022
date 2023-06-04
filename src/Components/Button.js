@@ -20,14 +20,14 @@ const Button = ({ darkMode }) => {
         styles.container,
         darkMode ? styles.darkButton : styles.lightButton,
       ]}
-      accessibilityRole="button"
+      accessibilityrole="button"
       focusable
       onClick={handleClick}
       onKeyDown={onKeyPress}
     >
       <Text
         style={darkMode && styles.darkTextColor}
-        accessibilityLabel="Resume"
+        accessibilityvalue="Resume"
       >
         Resume
       </Text>

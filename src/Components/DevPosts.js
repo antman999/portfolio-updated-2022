@@ -3,24 +3,19 @@ import { StyleSheet, Text, View, Pressable } from "react-native";
 
 const DevPosts = ({ darkMode }) => {
   const [posts, setPosts] = React.useState([]);
-  const fetchBlogs = async () => {
-    try {
-      let endpoint = "https://dev.to/api/articles?";
-      endpoint += `&username=${"antman"}`;
-      fetch(endpoint)
-        .then((res) => res.json())
-        .then((data) => {
-          setPosts(data || []);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   React.useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        let endpoint = "https://dev.to/api/articles?";
+        endpoint += `&username=${"antman"}`;
+        let res = await fetch(endpoint);
+        let data = await res.json();
+        setPosts(data || []);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     fetchBlogs();
   }, []);
 
@@ -31,13 +26,13 @@ const DevPosts = ({ darkMode }) => {
   });
 
   return (
-    <View accessibilityRole="list">
+    <View accessibilityrole="list">
       {posts &&
         posts.map((post) => {
           const postDate = new Date(post.created_at);
           return (
             <View
-              accessibilityRole="listitem"
+              accessibilityrole="listitem"
               key={post.id}
               style={styles.listItem}
             >

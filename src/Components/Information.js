@@ -25,18 +25,18 @@ const Information = ({ darkMode, isDesktop }) => {
           source={codingAnt}
           style={styles.img}
           focusable
-          accessibilityLabel="Picture of memoji Me coding"
+          accessibilityvalue="Picture of memoji Me coding"
         />
         <Text
           style={[styles.textName, darkMode && styles.darkText]}
-          accessibilityRole="heading"
+          accessibilityrole="heading"
           focusable
         >
           Hi 👋 I'm <Text style={[darkMode && styles.tealName]}>Anthony</Text>
         </Text>
         <Text
           style={[styles.bio, darkMode && styles.darkBio]}
-          accessibilityRole="paragraph"
+          accessibilityrole="paragraph"
         >
           Fullstack Engineer with a passion for design systems, and creating
           engaging user interfaces.

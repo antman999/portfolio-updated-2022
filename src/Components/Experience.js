@@ -17,7 +17,7 @@ const Experience = ({ darkMode, isDesktop }) => {
   return (
     <View
       focusable
-      accessibilityRole="paragraph"
+      accessibilityrole="paragraph"
       style={[isDesktop ? styles.experienceRoot : styles.experienceRootMobile]}
     >
       <View style={styles.textWrapper}>
@@ -98,10 +98,10 @@ const Experience = ({ darkMode, isDesktop }) => {
         <Text style={[styles.title, darkMode && styles.tealName]}>
           Technologies I'm working with
         </Text>
-        <View style={styles.list} accessibilityRole="list">
+        <View style={styles.list} accessibilityrole="list">
           {techStack.map((tech) => (
             <Text
-              accessibilityRole="listitem"
+              accessibilityrole="listitem"
               key={tech}
               style={[
                 styles.techStack,
@@ -125,7 +125,7 @@ const Experience = ({ darkMode, isDesktop }) => {
         </Text>
         <DevPosts darkMode={darkMode} />
       </View>
-      <View accessibilityRole="footer" style={styles.footer} focusable>
+      <View accessibilityrole="footer" style={styles.footer} focusable>
         <Text
           style={[
             styles.footerText,

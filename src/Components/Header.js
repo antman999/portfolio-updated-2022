@@ -27,7 +27,7 @@ const Header = ({ darkMode, onThemeChangeClick, onKeyDown }) => {
         styles.container,
         position > 5 ? styles.shadow : styles.noShadow,
       ]}
-      accessibilityRole="navigation"
+      accessibilityrole="navigation"
     >
       <View style={styles.control}>
         <View style={styles.leftNav}>
@@ -36,7 +36,7 @@ const Header = ({ darkMode, onThemeChangeClick, onKeyDown }) => {
             focusable
             onClick={handleClick}
             onKeyDown={onKeyPress}
-            accessibilityLabel="Anthony title button"
+            accessibilityvalue="Anthony title button"
           >
             {"<Anthony />"}
           </Text>
@@ -51,14 +51,14 @@ const Header = ({ darkMode, onThemeChangeClick, onKeyDown }) => {
             {darkMode ? (
               <FiSun
                 size={20}
-                accessibilityRole="button"
-                accessibilityLabel="Sun Icon"
+                accessibilityrole="button"
+                accessibilityvalue="Sun Icon"
               />
             ) : (
               <FiMoon
                 size={20}
-                accessibilityRole="button"
-                accessibilityLabel="Moon Icon"
+                accessibilityrole="button"
+                accessibilityvalue="Moon Icon"
               />
             )}
           </View>
