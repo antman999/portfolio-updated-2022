@@ -6,13 +6,13 @@ import DevPosts from "./DevPosts";
 const Experience = ({ darkMode, isDesktop }) => {
   const techStack = [
     "Javascript",
-    "Flow.js",
+    "Next.js",
     "Typescript",
     "React",
     "React Native",
-    "React Native Web",
     "React Testing Library",
-    "Node.js",
+    "Node.js / Express",
+    "Vue.js",
   ];
   return (
     <View
@@ -31,16 +31,17 @@ const Experience = ({ darkMode, isDesktop }) => {
             darkMode && { color: '"rgb(201,201,201)"' },
           ]}
         >
-          Hi! Thanks for visiting my portfolio! I'm a software engineer based
-          out of NYC. Currently working at Twitter. Previously I attended
-          Flatiron Bootcamp, where I learned all the fundamentals of web
-          development. <br /> <br />
-          Before attending Flatiron School, I was majoring in Computer Science
-          and working in banking.
+          Hello and welcome to my portfolio! I'm a software engineer based in
+          NYC with previous experience at Twitter. My journey began at Flatiron
+          Bootcamp, where I immersed myself in the world of web development and
+          gained a solid foundation in the fundamentals.
           <br />
           <br />
-          In my free time I enjoy exploring new front-end technologies,
-          practicing Muy Thai, and most importantly being dog dad to Cocoa 🐶.
+          Before my coding adventures, I was pursuing a degree in Computer
+          Science while working in the banking industry. However, when I'm not
+          busy with work, I love exploring new front-end technologies,
+          Practicing Muay Thai and BJJ, and cherishing the role of a devoted dog
+          dad to Cocoa 🐶.
         </Text>
       </View>
       <View focusable>

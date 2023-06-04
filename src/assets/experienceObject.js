@@ -2,7 +2,7 @@ export const technicalExperience = [
   {
     company: "Twitter",
     role: "SWE I",
-    date: "01/22 - Present, NYC",
+    date: "01/22 - 02/23, NYC",
     description:
       "▹ Shipped a complete redesign of our headers. The point of this project was to reduce visual excess on our header and make a more pleasant customer experience. This can be seen on every single header on twitter.com there is a blur animation as the user scrolls. \n\n▹ Helped ship automation of documenting props and types, this is similar to react-docgen but we have built our internal one to automate prop documentation and make it easier for all developers using our component library to document changes.  \n\n▹ Upgrade our entire web repo and customers code base from RNW .16 to RNW .18 and address all breaking changes.",
   },
@@ -26,7 +26,7 @@ export const education = [
   {
     school: "Queensborough Community College",
     award: "Computer Science (A.S.)",
-    date: "06/18 - Pending completion, NYC",
+    date: "01/18 - 01/20, NYC",
     description:
       "▹ Established core understanding of Computer Science principles such as Algorithms, and Data Structures.",
   },

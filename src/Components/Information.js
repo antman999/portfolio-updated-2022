@@ -38,8 +38,8 @@ const Information = ({ darkMode, isDesktop }) => {
           style={[styles.bio, darkMode && styles.darkBio]}
           accessibilityRole="paragraph"
         >
-          Front-end engineer @Twitter working on our internal UI library and
-          foundational components you see on Twitter.com
+          Fullstack Engineer with a passion for design systems, and creating
+          engaging user interfaces.
         </Text>
         <View style={[styles.socialLinks, darkMode && styles.tealName]}>
           {socialMediaObject.map((socialMedia) => (
